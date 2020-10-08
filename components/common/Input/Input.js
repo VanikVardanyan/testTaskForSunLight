@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import TextField from '@material-ui/core/TextField';
 
 import styles from './style.module.scss';
@@ -26,4 +26,4 @@ const CustomInput = ({
   </div>
 );
 
-export default CustomInput;
+export default memo(CustomInput);

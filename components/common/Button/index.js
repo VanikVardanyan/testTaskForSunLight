@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import style from './style.module.scss';
 
@@ -11,4 +11,4 @@ const Button = ({ cancel, onClick, type, text, disabled }) => (
   >{text}</button>
 );
 
-export default Button;
+export default memo(Button);

@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
@@ -26,7 +26,7 @@ const Edit = (props) => {
 
   const dispatch = useDispatch();
 
-  const handleError = (value, name) => {
+  const handleError = useCallback((value, name) => {
     switch (name) {
       case 'fullName':
         const arrName = value.split(' ');
@@ -40,9 +40,9 @@ const Edit = (props) => {
       case 'phone':
         return !phoneRegExp.test(value) && !!value;
     }
-  };
+  }, []);
 
-  const handleChange = (value, name) => {
+  const handleChange = useCallback((value, name) => {
     setDataform((prevState) => ({
       ...prevState,
       [name]: {
@@ -50,9 +50,9 @@ const Edit = (props) => {
         isError: handleError(value, name),
       },
     }));
-  };
+  }, [handleError]);
 
-  const checkDisabled = () => {
+  const checkDisabled = useCallback(() => {
     const isChanged = Object.entries(props).reduce((accumBool, [key, value]) => (
       dataForm[key].value !== value && !accumBool
         ? true
@@ -66,25 +66,25 @@ const Edit = (props) => {
     ), false);
 
     return !isChanged || hasError;
-  };
+  }, [props, dataForm]);
+
+  const handleToggleModdal = useCallback(() => {
+    setModalOpen((prevModalOpen) => !prevModalOpen);
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     handleToggleModdal();
   };
 
-  const handleToggleModdal = () => {
-    setModalOpen((prevModalOpen) => !prevModalOpen);
-  };
-
-  const saveData = () => {
+  const saveData = useCallback(() => {
     const normalizedData = Object.entries(dataForm).reduce((accumObj, [key, { value }]) => ({
       ...accumObj,
       [key]: value,
     }), {});
     dispatch(getFormData(normalizedData));
     api.post('', normalizedData)
-  };
+  }, [dataForm]);
 
   return (
     <>

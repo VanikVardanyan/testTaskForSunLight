@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo, useCallback } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -31,15 +31,15 @@ export const SaveModal = ({ openModal, toggleModal, onConfirm }) => {
 
   const classes = useStyles();
 
-  const handleConirm = () => {
+  const handleConirm = useCallback(() => {
     setDataIsSaved(true);
     onConfirm();
-  };
+  }, [onConfirm]);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     toggleModal();
     setDataIsSaved(false);
-  };
+  }, [toggleModal]);
 
   return (
     <Modal
@@ -94,4 +94,4 @@ export const SaveModal = ({ openModal, toggleModal, onConfirm }) => {
   );
 };
 
-export default SaveModal;
+export default memo(SaveModal);
