@@ -1,0 +1,7 @@
+.content {
+  margin: 0 49px 7px;
+  
+  @media(max-width: 510px) {
+    margin: 0 10px 7px;
+  }
+}

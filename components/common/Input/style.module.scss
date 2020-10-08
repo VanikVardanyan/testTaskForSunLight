@@ -1,0 +1,18 @@
+.customInput {
+  display: flex;
+  align-items: center;
+  margin-top: 49px;
+
+  &_iconSection {
+    margin-right: 45px;
+
+    @media(max-width: 520px) {
+      display: none;
+    }
+  }
+
+  &_icon {
+    font-size: 30px !important;
+    color:  #00BFA5;;
+  }
+}

@@ -1,0 +1,23 @@
+.actionBtn {
+  height: 49px;
+  width: 212px;
+  margin-top: 20px;
+  border-radius: 36px;
+  border: none;
+  background: rgb(1, 189, 167);
+  outline: none;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+
+  &:disabled {
+    cursor: default;
+    background-color: rgba(1, 189, 167, 0.3);
+  }
+}
+
+.actionBtn__cancel{
+  border: 1px solid rgb(1, 189, 167);
+  color: rgb(1, 189, 167);
+  background-color: white;
+}

@@ -1,0 +1,35 @@
+.save {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 20px;
+  button {
+    margin-bottom: 28px;
+  }
+}
+
+.saveTitle {
+	font-size: 24px;
+	line-height: 33px;
+  color: rgba(49, 49, 49, 0.7);
+  
+  @media(max-width: 510px) {
+    font-size: 18px;
+  }
+}
+
+.btnSection {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.closeBtn {
+	border: none;
+	outline: none;
+	background-color: white;
+}
+
+.closeIcon {
+	font-size: 17px !important;
+	color: #828282;
+}

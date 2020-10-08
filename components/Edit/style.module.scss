@@ -1,0 +1,35 @@
+.edit {
+  display: flex;
+  flex-direction: column;
+  min-height: 245px;
+  padding: 0 34px 14px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  background-color: white;
+}
+.inputSection {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 26px;
+
+  @media(max-width: 1128px) {
+    flex-direction: column;
+  }
+}
+
+.border {
+  height: 60px;
+  align-self: flex-end;
+  border-right: 1px solid #CAE7FE;
+
+  @media(max-width: 1346px) {
+    display: none;
+  }
+}
+.actionSection {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
